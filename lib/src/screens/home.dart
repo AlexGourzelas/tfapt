@@ -6,6 +6,7 @@ import '/src/data.dart';
 import '/src/screens/tour_details.dart';
 import '/src/widgets/asset_image_builder.dart';
 import 'about.dart';
+import 'Howto.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -42,12 +43,20 @@ class _HomeState extends State<Home> {
                 value: "About",
                 child: Text("About"),
               ),
+              const PopupMenuItem(
+                value: "How to",
+                child: Text("How to"),
+                ),
             ],
             onSelected: (value) {
               switch (value) {
                 case "About":
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => const About()));
+                  break;
+                  case "How to":
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const Howto()));
                   break;
               }
             },
@@ -66,13 +75,16 @@ class _HomeState extends State<Home> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Tours",
+                    "To travel is to Live - Hans Christian Andersen",
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   const SizedBox(height: 4.0),
                   Text(
-                    "Below, you will find a list containing the tours currently available "
-                    "in ${tourForgeConfig.appName}. Try tapping on one to take a look!",
+                    "Embark on a journey through the picturesque villages and towns of Greece, each with its own charm!"
+                    "Capture stunning photographs of Greece's iconic landmarks and breathtaking landscapes."
+                    "Greco is your AI tour partner."
+                    "Below, you will find a list containing available tours "
+                    "in ${tourForgeConfig.appName}. Tap on one to take a look!",
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ],
@@ -149,8 +161,8 @@ class _TourListItemState extends State<_TourListItem> {
                       children: [
                         const SizedBox(height: 24.0),
                         const Text(
-                          "Would you like to delete the locally-downloaded content of this tour?\n\n"
-                          "You will still be able to redownload this tour in the future if desired.",
+                          "By deleting the tour files you will free-up space in your mobile phone\n\n"
+                          "You will still be able to redownload this tour in the future.",
                           softWrap: true,
                         ),
                         Row(
